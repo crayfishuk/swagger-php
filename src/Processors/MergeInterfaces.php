@@ -17,6 +17,13 @@ class MergeInterfaces
                 $existing = [];
                 $interfaces = $analysis->getInterfacesOfClass($schema->_context->fullyQualifiedName($schema->_context->class));
                 foreach ($interfaces as $interface) {
+                    foreach ($interface['context']->annotations as $annotation) {
+                        if ($annotation instanceof Property && !in_array($annotation->_context->property, $existing)) {
+                            $existing[] = $annotation->_context->property;
+                            $schema->merge([$annotation], true);
+                        }
+                    }
+
                     foreach ($interface['methods'] as $method) {
                         if (is_array($method->annotations) || $method->annotations instanceof Traversable) {
                             foreach ($method->annotations as $annotation) {

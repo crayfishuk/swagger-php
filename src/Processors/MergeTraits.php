@@ -17,6 +17,13 @@ class MergeTraits
                 $existing = [];
                 $traits = $analysis->getTraitsOfClass($schema->_context->fullyQualifiedName($schema->_context->class));
                 foreach ($traits as $trait) {
+                    foreach ($trait['context']->annotations as $annotation) {
+                        if ($annotation instanceof Property && !in_array($annotation->_context->property, $existing)) {
+                            $existing[] = $annotation->_context->property;
+                            $schema->merge([$annotation], true);
+                        }
+                    }
+
                     foreach ($trait['properties'] as $method) {
                         if (is_array($method->annotations) || $method->annotations instanceof Traversable) {
                             foreach ($method->annotations as $annotation) {

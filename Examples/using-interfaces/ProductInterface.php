@@ -3,13 +3,13 @@
 namespace UsingInterfaces;
 
 /**
- * @OA\Schema(title="Product interface")
+ * @OA\Schema()
  */
 interface ProductInterface
 {
 
     /**
-     * The unique identifier of a product in our catalog.
+     * The product name.
      *
      * @OA\Property(property="name", example="toaster")
      */

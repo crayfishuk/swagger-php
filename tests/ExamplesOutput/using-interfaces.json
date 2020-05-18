@@ -32,7 +32,7 @@
         "title": "Product model",
         "properties": {
           "name": {
-            "description": "The unique identifier of a product in our catalog.",
+            "description": "The product name.",
             "example": "toaster"
           },
           "id": {
@@ -44,9 +44,7 @@
         },
         "type": "object"
       },
-      "ProductInterface": {
-        "title": "Product interface"
-      }
+      "ProductInterface": {}
     }
   }
 }

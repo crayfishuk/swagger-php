@@ -48,6 +48,7 @@ class ExamplesTest extends OpenApiTestCase
             ['using-refs', 'using-refs.json'],
             ['example-object', 'example-object.json'],
             ['using-interfaces', 'using-interfaces.json'],
+            ['using-traits', 'using-traits.json'],
         ];
     }
 }
