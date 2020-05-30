@@ -11,6 +11,7 @@ class UtilTest extends OpenApiTestCase
     public function testExclude()
     {
         $openapi = \OpenApi\scan(__DIR__ . '/Fixtures', ['exclude' => [
+            'Parser',
             'UserInterface.php',
             'Customer.php',
             'CustomerInterface.php',
